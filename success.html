@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FairPrice Pro - Payment Successful</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #d1fae5 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+      max-width: 480px;
+      width: 100%;
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      animation: scaleIn 0.5s ease-out;
+    }
+
+    @keyframes scaleIn {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .success-icon svg {
+      width: 40px;
+      height: 40px;
+      color: white;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #64748b;
+      margin-bottom: 32px;
+    }
+
+    .license-box {
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+      border: 2px solid #059669;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .license-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #059669;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .license-key {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+      background: white;
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      word-break: break-all;
+      border: 1px solid #e2e8f0;
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #059669;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+
+    .copy-btn.copied {
+      background: #0f172a;
+    }
+
+    .instructions {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .instructions h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .steps {
+      list-style: none;
+    }
+
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .steps li:last-child {
+      border-bottom: none;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      background: #f1f5f9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      flex-shrink: 0;
+    }
+
+    .help-text {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .help-text a {
+      color: #059669;
+      text-decoration: none;
+    }
+
+    .help-text a:hover {
+      text-decoration: underline;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 6px;
+      margin-bottom: 24px;
+    }
+
+    .expiry-info {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+    
+    <div class="badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z"/>
+      </svg>
+      PRO ACTIVATED
+    </div>
+    
+    <h1>Thank you! 🎉</h1>
+    <p class="subtitle">Your FairPrice Pro subscription is now active.</p>
+
+    <div class="license-box">
+      <div class="license-label">Your License Key</div>
+      <div class="license-key" id="licenseKey">Generating...</div>
+      <button class="copy-btn" id="copyBtn" onclick="copyLicense()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+          <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+        </svg>
+        <span>Copy to Clipboard</span>
+      </button>
+      <div class="expiry-info" id="expiryInfo"></div>
+    </div>
+
+    <div class="instructions">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
+        </svg>
+        How to activate
+      </h3>
+      <ol class="steps">
+        <li>
+          <span class="step-number">1</span>
+          <span>Click the <strong>FairPrice icon</strong> in your browser toolbar</span>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <span>Click <strong>"Upgrade to Pro"</strong> button</span>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <span>Paste your license key in the activation field</span>
+        </li>
+        <li>
+          <span class="step-number">4</span>
+          <span>Click <strong>"Activate"</strong> and enjoy unlimited protection!</span>
+        </li>
+      </ol>
+    </div>
+
+    <p class="help-text">
+      Need help? <a href="mailto:support@fairprice.app">Contact support</a>
+    </p>
+  </div>
+
+  <script>
+    // ============================================
+    // LICENSE GENERATION - MUST MATCH EXTENSION
+    // ============================================
+    
+    // Secret key (must match popup.js)
+    const LICENSE_SECRET = 'FairPrice2025';
+    
+    function generateChecksum(expiry) {
+      const data = `${expiry}${LICENSE_SECRET}`;
+      let hash = 0;
+      for (let i = 0; i < data.length; i++) {
+        const char = data.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+      }
+      return Math.abs(hash).toString(36).substring(0, 6);
+    }
+    
+    function generateLicense(daysValid) {
+      const expiry = Date.now() + (daysValid * 24 * 60 * 60 * 1000);
+      const expiryBase36 = expiry.toString(36).toUpperCase();
+      const checksum = generateChecksum(expiry).toUpperCase();
+      
+      return {
+        key: `FP-${expiryBase36}-${checksum}`,
+        expiryDate: new Date(expiry)
+      };
+    }
+    
+    // ============================================
+    // DETECT PLAN FROM URL
+    // ============================================
+    
+    function getPlanFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const plan = params.get('plan');
+      
+      // You can also check Stripe session_id if needed
+      // const sessionId = params.get('session_id');
+      
+      if (plan === 'monthly') {
+        return { days: 35, name: 'Monthly' }; // 35 days (month + buffer)
+      } else {
+        return { days: 370, name: 'Yearly' }; // 370 days (year + buffer)
+      }
+    }
+    
+    // ============================================
+    // INITIALIZE
+    // ============================================
+    
+    const plan = getPlanFromUrl();
+    const license = generateLicense(plan.days);
+    
+    document.getElementById('licenseKey').textContent = license.key;
+    document.getElementById('expiryInfo').textContent = 
+      `Valid until ${license.expiryDate.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      })}`;
+    
+    // ============================================
+    // COPY FUNCTIONALITY
+    // ============================================
+    
+    function copyLicense() {
+      const licenseKey = document.getElementById('licenseKey').textContent;
+      navigator.clipboard.writeText(licenseKey).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.classList.add('copied');
+        btn.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+          <span>Copied!</span>
+        `;
+        
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+            </svg>
+            <span>Copy to Clipboard</span>
+          `;
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
